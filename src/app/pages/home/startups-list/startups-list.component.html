@@ -1,0 +1,73 @@
+<div class="startups-list pt-100 pb-100  " id="startupsExp">
+  <div class="wrapper">
+
+    <div class="section__title-container">
+      <h2 class="section__title">Know <br>About The Most Brilliant Startups!</h2>
+      <span class="line"></span>
+     </div>
+     <!-- (selectedTabChange)="tabChanged($event)" -->
+    <div class="">
+      <mat-tab-group  [@.disabled]="true" class="startups-list__menu"  (selectedTabChange)="tabChanged($event)">
+        <mat-tab>
+          <ng-template mat-tab-label><div><button type="button" role="tab">See All </button></div></ng-template>
+          <div class="startup_row">
+            <div class="startup_col mt-20 mb-20" *ngFor="let startup of startups">
+            <div class="startups-list__item ">
+              <div class="startups-list__thumb">
+                <a (click)="toStartupDetails(startup.key)">
+                  <img class="cover_img" src="{{startup.coverImg}}" alt="">
+                    <div class="grade_overlay">
+                      <div class="startups-list__tag">
+                        <a href="#"><img style="width :80px" src="{{startup.startupLogo}}" alt=""></a>
+                      </div>
+                     <div class="startup_home_title">
+                      <h1>{{startup.startupName}}</h1>
+                      <span>{{startup.sectorName|join}}, <a href="{{startup.websiteURL}}" target="_blank">Website</a></span>
+                     </div>
+                </div>
+
+                </a>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        </mat-tab>
+        <ng-container *ngFor="let sector of sectors" >
+          <mat-tab label="{{sector.sectorName}}" >
+              <ng-container *ngFor="let curr of current">
+              <div class="startup_row">
+                <div class="startup_col mt-20 mb-20" >
+                <div class="startups-list__item ">
+                  <div class="startups-list__thumb">
+                    <a (click)="toStartupDetails(curr.key)">
+                      <img class="cover_img" src="{{curr.coverImg}}" alt="">
+                        <div class="grade_overlay">
+                          <div class="startups-list__tag">
+                            <a href="#"><img style="width :80px" src="{{curr.startupLogo}}" alt=""></a>
+                          </div>
+                         <div class="startup_home_title">
+                          <h1> {{curr.startupName}} </h1>
+
+                          <span>{{curr.sectorName|join}}, <a href="{{curr.websiteURL}}" target="_blank">Website</a></span>
+                         </div>
+                    </div>
+
+                    </a>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+
+
+          </mat-tab>
+        </ng-container>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

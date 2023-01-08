@@ -1,29 +1,55 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './core/guards/auth.guard';
+import { AdminService } from './services/admin.service';
 
 const routes: Routes = [
   {
-    path:'' , redirectTo:'home', pathMatch: 'full', //canLoad:[NoAuthGuard]
+    path: '',
+    loadChildren: () =>
+      import('./pages/home/home.module').then((m) => m.HomeModule),
   },
   {
-    path:'auth' ,loadChildren:()=>import('./Auth/auth.module').then(m=>m.AuthModule),
-    //canLoad:[NoAuthGuard]
+    path: 'home',
+    loadChildren: () =>
+      import('./pages/home/home.module').then((m) => m.HomeModule),
   },
   {
-    path:'home', loadChildren:()=>import('./pages/home/home.module').then(m=>m.HomeModule),
-    // canLoad: [AuthGuard]
+    path: 'sectors',
+    loadChildren: () =>
+      import('./pages/sectors/sectors.module').then((m) => m.SectorsModule),
+    canLoad: [AuthGuard],
   },
   {
-    path:'dashboard', loadChildren:()=>import('./pages/dashboard/dashboard.module').then(m=>m.DashboardModule),
-    //  canLoad: [AuthGuard]
+    path: 'startups',
+    loadChildren: () =>
+      import('./pages/startups/startups.module').then((m) => m.StartupsModule),
+    canLoad: [AuthGuard],
   },
   {
-    path:'**' , redirectTo:'home', pathMatch:'full'
-  }
+    path: 'about',
+    loadChildren: () =>
+      import('./pages/about/about.module').then((m) => m.AboutModule),
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./pages/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
+    canLoad: [AdminService],
+  },
+  {
+    path: '**',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

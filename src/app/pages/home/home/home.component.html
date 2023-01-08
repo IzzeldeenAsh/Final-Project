@@ -1,2 +1,39 @@
-<p>home works!</p>
-<button class="btn btn-danger">Bla</button>
+
+ <app-navbar (searchTextChange)="onSeatchTextRecieved($event)" ></app-navbar>
+  <main *ngIf="searchText === '' ">
+    <app-hero></app-hero>
+    <app-welcome></app-welcome>
+    <app-sectors-explore></app-sectors-explore>
+    <app-startups-list></app-startups-list>
+    <app-begin></app-begin>
+    <app-footer></app-footer>
+  </main>
+  <ng-container *ngFor="let startup of startups"><div *ngIf="searchText !== '' && startup.startupName.toLowerCase().includes(searchText)" class="pt-100">
+    <div class="startup_row">
+      <div class="startup_col mt-20 mb-20" >
+      <div class="startups-list__item ">
+        <a (click)="toStartupDetails(startup.key)">
+          <div class="startups-list__thumb" >
+            <a>
+              <img class="cover_img" src="{{startup.coverImg}}" alt="">
+                <div class="grade_overlay">
+                  <div class="startups-list__tag">
+                    <a href="#"><img style="width :80px" src="{{startup.startupLogo}}" alt=""></a>
+                  </div>
+                 <div class="startup_home_title">
+                  <h1>{{startup.startupName}}</h1>
+                  <span>{{startup.sectorName|join}}, <a href="{{startup.websiteURL}}" target="_blank">Website</a></span>
+                 </div>
+            </div>
+
+            </a>
+
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+  </div>
+</ng-container>
+

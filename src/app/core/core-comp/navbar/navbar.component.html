@@ -1,0 +1,109 @@
+<nav class="nav" [ngClass]="sticky? 'nav_sticky':'nav'">
+  <div class="header_wrapper wrapper header" id="stickyHeader" >
+    <div class="header_left">
+      <img class="logo" src="https://firebasestorage.googleapis.com/v0/b/neue-welt-d499e.appspot.com/o/home%2Flogo.svg?alt=media&token=1b3994ca-ae70-4b80-a2fa-1b540c768ae0" alt="" routerLink="/" />
+      <ul class="header_left_list hidden xl:flex" [ngClass]="sticky? 'header_left_list_sticky':'header_left_list_notSticky'">
+      <ng-container *ngIf="_userData.isAuthenticated$|async">
+        <li class="header_left_list_item" [routerLink]="['/home']" routerLinkActive="activeNavLinks">
+          Home
+        </li>
+        <li class="header_left_list_item" [routerLink]="['/sectors']" routerLinkActive="activeNavLinks" >
+          Sectors
+        </li>
+        <li class="header_left_list_item"  [routerLink]="['/startups']" routerLinkActive="activeNavLinks">
+          Startups
+        </li>
+        <li class="header_left_list_item"  [routerLink]="['/about']" routerLinkActive="activeNavLinks">
+          About Us
+        </li>
+      </ng-container>
+        <ng-container *ngIf="isAdmin">
+          <li class="header_left_list_item"  [routerLink]="['/dashboard']" >
+            Dashboard
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="header_right">
+      <div class="header_right_form hidden lg:block" *ngIf="isHome">
+      <form action="">
+        <input type="text" placeholder="Startup name" name="search" id="" [(ngModel)]="enterdSearchValue" (input)="onSearch()" />
+        <div class="header_right_form_input_icons">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </form>
+      </div>
+      <div class="header_right_btns notAuth" *ngIf="!(_userData.isAuthenticated$|async) ; else authLinks ">
+        <button class="user_name" [ngClass]="sticky? 'user_name_sticky' :'user_name_noSticky'" (click)="openModal($event,'LoginForm')">Log In</button
+        ><button class="btn_secondary" (click)="openModal($event,'RegisterForm')">Sign Up</button>
+      </div>
+     <ng-template #authLinks>
+      <div class="header_right_btns">
+        <a class="user_name hidden sm:inline-block" [ngClass]="sticky? 'user_name_sticky' :'user_name_noSticky'">Hi {{userName}}!</a
+        ><button class="btn_secondary hidden sm:inline-block" [routerLink]="['/startups/add-startup']">New Startup!</button>
+        <a class="user_name" (click)="logout()" [ngClass]="sticky? 'user_name_sticky' :'user_name_noSticky'"><i class="fa-solid fa-right-from-bracket"> <span class="links_name">Logout</span></i> </a>
+      </div>
+     </ng-template>
+     <div class="sidebar__menu xl:hidden">
+      <div (click)="handleSidebar()" class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+      </div>
+  </div>
+    </div>
+  </div>
+</nav>
+<!-- sidebar -->
+<div class="sidebar__area xl:hidden" [ngClass]="showSidebar? 'sidebar-opened':'sidebar-closed'">
+  <div class="sidebar__wrapper">
+    <div (click)="handleSidebarClose()" class="sidebar__close">
+        <button class="sidebar__close-btn" id="sidebar__close-btn">
+        <span><mat-icon>close</mat-icon></span>
+        <span>close</span>
+        </button>
+    </div>
+    <div class="sidebar__content">
+        <div class="logo mb-40">
+          <a routerLink="/">
+            <img src="https://firebasestorage.googleapis.com/v0/b/neue-welt-d499e.appspot.com/o/home%2Flogo.svg?alt=media&token=1b3994ca-ae70-4b80-a2fa-1b540c768ae0" style="width: 60px;" alt="logo">
+          </a>
+          <h3 class="logo_title">Neue Welt</h3>
+        </div>
+         <div class="side-info-content sidebar-menu menu">
+            <ul>
+              <li class="menu-item-has-children list-el">
+                  <a [routerLink]="['/home']" routerLinkActive="activeNavLinks" (click)="handleSidebarClose()">Home</a >
+              </li>
+           <ng-container *ngIf="_userData.isAuthenticated$|async">
+            <li class="menu-item-has-children list-el">
+              <a  [routerLink]="['/sectors']" routerLinkActive="activeNavLinks" (click)="handleSidebarClose()" >
+                Sectors
+              </a>
+                </li>
+                <li class="menu-item-has-children list-el">
+              <a [routerLink]="['/startups']" routerLinkActive="activeNavLinks" (click)="handleSidebarClose()">Startups</a>
+            </li>
+           </ng-container>
+                  <li class="menu-item-has-children list-el">
+                <a [routerLink]="['/about']" routerLinkActive="activeNavLinks" (click)="handleSidebarClose()">About US</a>
+              </li>
+              <li class="menu-item-has-children list-el">
+              <div *ngIf="(_userData.isAuthenticated$|async) ; else notAuthed " >  <a routerLinkActive="activeNavLinks" [routerLink]="['/startups/add-startup']">New Startup!</a></div>
+              <ng-template #notAuthed>
+                <a routerLinkActive="activeNavLinks" (click)="openModal($event,'RegisterForm')" (click)="handleSidebarClose()">New Startup!</a>
+              </ng-template>
+              </li>
+          </ul>
+        </div>
+        <div class="sidebar__search p-relative mt-40 " *ngIf="isHome">
+          <form action="#" *ngIf="isHome">
+            <input type="text" placeholder="Startup name" name="search" [(ngModel)]="enterdSearchValue" (input)="onSearch()" />
+            <div class="header_right_form_input_icons">
+           <button type="submit"> <mat-icon>search</mat-icon> </button>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
