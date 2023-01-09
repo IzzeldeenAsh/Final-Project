@@ -26,12 +26,7 @@
     </div>
     <div class="header_right">
       <div class="header_right_form hidden lg:block" *ngIf="isHome">
-      <form action="">
-        <input type="text" placeholder="Startup name" name="search" id="" [(ngModel)]="enterdSearchValue" (input)="onSearch()" />
-        <div class="header_right_form_input_icons">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-      </form>
+
       </div>
       <div class="header_right_btns notAuth" *ngIf="!(_userData.isAuthenticated$|async) ; else authLinks ">
         <button class="user_name" [ngClass]="sticky? 'user_name_sticky' :'user_name_noSticky'" (click)="openModal($event,'LoginForm')">Log In</button
@@ -96,14 +91,7 @@
               </li>
           </ul>
         </div>
-        <div class="sidebar__search p-relative mt-40 " *ngIf="isHome">
-          <form action="#" *ngIf="isHome">
-            <input type="text" placeholder="Startup name" name="search" [(ngModel)]="enterdSearchValue" (input)="onSearch()" />
-            <div class="header_right_form_input_icons">
-           <button type="submit"> <mat-icon>search</mat-icon> </button>
-            </div>
-          </form>
-        </div>
+
     </div>
   </div>
 </div>

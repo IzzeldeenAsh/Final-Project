@@ -21,6 +21,8 @@ import { StartupsService } from 'src/app/services/startups.service';
 export class AddStartupComponent implements OnInit {
   private readonly destroy$ = new Subject<void>();
   addStartup!: FormGroup;
+  isDragover = false;
+  nextStep = false;
   path: string = '';
   logoUrl: any = '';
   file: File | null = null;
@@ -176,10 +178,15 @@ export class AddStartupComponent implements OnInit {
   }
 
   uploadLogo($event: any) {
-    this.file = $event.target?.files[0] ?? null;
+    this.isDragover = false;
+    this.nextStep = true;
+    this.file = ($event as DragEvent).dataTransfer
+      ? ($event as DragEvent).dataTransfer?.files.item(0) ?? null
+      : $event.target.files[0] ?? null;
     if (!this.file) {
       return;
     }
+    this.nextStep = true;
     const reader = new FileReader();
     reader.onload = (e) => (this.logoUrl = reader.result);
     reader.readAsDataURL(this.file);
@@ -274,9 +281,14 @@ export class AddStartupComponent implements OnInit {
     });
   }
 
+  removeLogo() {
+    this.file = null;
+    this.nextStep = false;
+    this.logoUrl = null;
+  }
+
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
-    this.uploadTask.cancel();
   }
 }

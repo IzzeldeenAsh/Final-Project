@@ -1,6 +1,5 @@
 <app-spinner *ngIf="showSpinner"></app-spinner>
 <section *ngIf="!showSpinner">
-<app-navbar></app-navbar>
 <app-banner title="{{title}}"  subtitle="Sectors" coverImg="https://i.pinimg.com/originals/28/00/71/28007141fb21d9a96a7247e75df156cc.jpg"></app-banner>
 <section  class="Sectors mb-100" id="about" *ngFor="let sector of currentSector">
   <div class="wrapper">

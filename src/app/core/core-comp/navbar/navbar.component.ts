@@ -1,6 +1,5 @@
 import {
   Component,
-  EventEmitter,
   HostListener,
   OnDestroy,
   OnInit,
@@ -19,7 +18,6 @@ import { UsersDataService } from 'src/app/initializer/users-data.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-  @Output() searchTextChange: EventEmitter<string> = new EventEmitter<string>();
   private readonly destroy$ = new Subject<void>();
   enterdSearchValue: string = '';
   sticky: boolean = false;
@@ -34,13 +32,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
     public _authFire: AngularFireAuth,
     private router: Router,
     public _userData: UsersDataService
-  ) {
-    this.isUserAdmin();
-    this.currentUserData();
-  }
+  ) {}
 
   ngOnInit(): void {
     this.currentPath();
+    this.isUserAdmin();
+    this.currentUserData();
   }
 
   isUserAdmin() {
@@ -89,10 +86,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
   handleSidebarClose() {
     this.showSidebar = false;
-  }
-
-  onSearch() {
-    this.searchTextChange.emit(this.enterdSearchValue);
   }
 
   logout() {

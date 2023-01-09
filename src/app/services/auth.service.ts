@@ -5,8 +5,6 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import IUser from '../models/user.modal';
 import { map, delay, switchMap } from 'rxjs/operators';
 import { GoogleAuthProvider, User, user, UserInfo } from '@angular/fire/auth';
-import { Router } from '@angular/router';
-import { ActivationStart } from '@angular/router';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Injectable({
@@ -28,6 +26,10 @@ export class AuthService {
   ) {
     this.user$ = _authFire.authState;
     this.authStateSub();
+  }
+
+  get isLogged() {
+    return this.isLoggedIn$;
   }
 
   public createUsers(userData: IUser): Observable<UserCredential> {
