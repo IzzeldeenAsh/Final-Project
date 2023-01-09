@@ -12,7 +12,6 @@ import { AlertsService } from 'src/app/services/alerts.service';
 import { FirestorgeService } from 'src/app/services/firestorge.service';
 import { SectorsService } from 'src/app/services/sectors.service';
 import { StartupsService } from 'src/app/services/startups.service';
-import { AngularFireUploadTask } from '@angular/fire/compat/storage';
 
 @Component({
   selector: 'app-add-startup',
