@@ -19,6 +19,7 @@ import { UsersDataService } from 'src/app/initializer/users-data.service';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   private readonly destroy$ = new Subject<void>();
+  showDashDropdown: boolean = false;
   enterdSearchValue: string = '';
   sticky: boolean = false;
   userName!: string;
@@ -93,6 +94,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
       .logout()
       .pipe(takeUntil(this.destroy$))
       .subscribe(() => this.router.navigateByUrl('/home'));
+  }
+
+  dashDropdown() {
+    this.showDashDropdown = !this.showDashDropdown;
   }
 
   ngOnDestroy(): void {

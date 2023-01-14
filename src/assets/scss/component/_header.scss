@@ -353,12 +353,12 @@ i:hover  .links_name{
   position: relative;
 }
 .menu ul li.list-el.active>a {
-  color: black;
+  color: $main_dark_2;
 }
-.menu ul li.list-el.active>a:after {
+.list-el.active>a:after {
   transform: rotate(-135deg) translateY(-50%);
 }
-.menu ul li.list-el>a:after {
+.list-el>a:after {
   position: absolute;
   content: "";
   width: 8px;
@@ -372,7 +372,7 @@ i:hover  .links_name{
   transform-origin: top;
   transition: all .3s ease-out;
 }
-.menu ul li.list-el ul.sub-menu {
+.list-el ul.sub-menu {
   padding-left: 0;
   list-style: none;
 }
@@ -398,4 +398,64 @@ i:hover  .links_name{
   }
 
 }
+.sub-menu{
+  display: none;
+  transition: all .2s ease-in;
+  padding-bottom: 20px;
+}
+.sub-menu.active{
+  display: block;
+  transition: all .2s ease-in-out;
+}
+.sub-menu li a {
+  position: relative;
+  padding: 0 0 0 15px;
+  text-transform: capitalize;
+  font-size: 13px;
+  height: 0;
+  line-height: 46px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .2s ease-in-out;
+}
+
+.sub-menu.active li a {
+  height: 46px;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sub-menu li a{
+color: $main_dark_2;
+font-size: .6rem;
+}
+
+.sub-menu li{
+  padding-left: 20px;
+}
+.dashmenu{
+  position: relative;
+
+}
+.dashmenu:hover .dropmenu{
+  visibility: visible;
+  opacity: 1;
+}
+.dropmenu{
+  position: absolute;
+  top: 126%;
+  background-color: white;
+  padding: 20px;
+  width: 200px;
+  border-radius: 6px;
+  box-shadow: 1px 3px 20px  rgba(142, 142, 142,0.3);
+  visibility: hidden;
+  opacity: 0;
+  transition: all .2s ease-in-out;
+  li{
+    padding: 5px 0;
+  }
+}
+
 /*Header css end*/

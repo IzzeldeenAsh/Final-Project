@@ -18,8 +18,19 @@
         </li>
       </ng-container>
         <ng-container *ngIf="isAdmin">
-          <li class="header_left_list_item"  [routerLink]="['/dashboard']" >
-            Dashboard
+          <li class="header_left_list_item dashmenu"   >
+          <a [routerLink]="['/dashboard']">Dashboard</a>
+          <ul class="dropmenu">
+            <li >
+              <a [routerLink]="['/dashboard/dashboard-overview']">Dashboard Overview</a>
+          </li>
+          <li>
+              <a [routerLink]="['/dashboard/sectors-manage']">Sectors</a>
+          </li>
+          <li>
+              <a [routerLink]="['/dashboard/startups-manage']">Startups</a>
+          </li>
+          </ul>
           </li>
         </ng-container>
       </ul>
@@ -79,6 +90,23 @@
                 <li class="menu-item-has-children list-el">
               <a [routerLink]="['/startups']" routerLinkActive="activeNavLinks" (click)="handleSidebarClose()">Startups</a>
             </li>
+            <ng-container *ngIf="isAdmin">
+              <li class="menu-item-has-children list-el"  [class.active]="showDashDropdown"
+               >
+               <a (click)="dashDropdown()">Dashboard</a>
+               <ul class="sub-menu" [class.active]="showDashDropdown">
+                <li>
+                    <a [routerLink]="['/dashboard/dashboard-overview']">Dashboard Overview</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/dashboard/sectors-manage']">Sectors</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/dashboard/startups-manage']">Startups</a>
+                </li>
+              </ul>
+              </li>
+            </ng-container>
            </ng-container>
                   <li class="menu-item-has-children list-el">
                 <a [routerLink]="['/about']" routerLinkActive="activeNavLinks" (click)="handleSidebarClose()">About US</a>

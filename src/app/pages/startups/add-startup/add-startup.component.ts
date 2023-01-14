@@ -23,7 +23,6 @@ export class AddStartupComponent implements OnInit {
   addStartup!: FormGroup;
   isDragover = false;
   nextStep = false;
-  path: string = '';
   logoUrl: any = '';
   file: File | null = null;
   showAlert = false;
