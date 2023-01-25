@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -13,7 +13,6 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material/icon';
 import { CoreCompModule } from './core/core-comp/core-comp.module';
 import { InitializerModule } from './initializer/initializer.module';
 
@@ -32,7 +31,6 @@ import { InitializerModule } from './initializer/initializer.module';
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
-    MatIconModule,
     AppRoutingModule,
     InitializerModule,
   ],

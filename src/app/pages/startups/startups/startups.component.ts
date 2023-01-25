@@ -1,7 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
 import IStartup from 'src/app/models/startup.modal';
-import { AuthService } from 'src/app/services/auth.service';
 import { ModalService } from 'src/app/services/modal.service';
 import { StartupsService } from 'src/app/services/startups.service';
 import { Subject, takeUntil } from 'rxjs';
@@ -19,8 +17,6 @@ export class StartupsComponent implements OnInit, OnDestroy {
 
   constructor(
     private _startups: StartupsService,
-    private _authService: AuthService,
-    private router: Router,
     public _modal: ModalService
   ) {}
 

@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import * as _ from 'lodash';
 import { UsersDataService } from 'src/app/initializer/users-data.service';
-import { AuthService } from 'src/app/services/auth.service';
-import { LoaderService } from 'src/app/services/loader.service';
 import { ModalService } from 'src/app/services/modal.service';
 import SwiperCore, { Autoplay, EffectFade } from 'swiper';
 SwiperCore.use([Autoplay, EffectFade]);

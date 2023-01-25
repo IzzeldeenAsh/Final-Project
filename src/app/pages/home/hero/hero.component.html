@@ -7,6 +7,18 @@
       <swiper class="swiper-wrapper" [slidesPerView]="1" [loop]="true"
       [effect]="'fade'"
       [autoplay]="{delay: 3400,disableOnInteraction: false}">
+        <ng-template swiperSlide>
+          <div class="single-slider swiper-slide slider__height slider__overlay flex items-center"[ngStyle]="{background:'url(https://firebasestorage.googleapis.com/v0/b/neue-welt-d499e.appspot.com/o/website%2Fhero_3.webp?alt=media&token=efe27a06-0fe5-41eb-b29e-3d711ea7c270)',backgroundRepeat:'no-repeat',backgroundSize:'cover',backgroundPosition:'center'}" >
+            <div class="hero__content-wrapper mt-20 hero">
+              <h1 class="hero__title"><span>share your startup</span></h1>
+              <p class="hero__description">The project (Neue Welt) is a website affiliated with the Jordan Ministry of Digital Economy and Entrepreneurship.
+                Neue Welt is a dynamic platform for documenting all startup ecosystems in Jordan. Here you can see all the fresh companies in Jordan and to which sector they belong, as well as you can request your own startup to be shown on the website.</p>
+                <div class="hero__buttons">
+                  <button class="btn btn-req" (click)="checkUser($event)">Get started!</button>
+                </div>
+             </div>
+          </div>
+      </ng-template>
       <ng-template swiperSlide>
         <div class="single-slider swiper-slide slider__height slider__overlay flex items-center" [ngStyle]="{background:'url(https://firebasestorage.googleapis.com/v0/b/neue-welt-d499e.appspot.com/o/home%2FLydianWorldBackground.webp?alt=media&token=22f3ef70-048a-4b22-af08-b068e79dd0ce)',backgroundRepeat:'no-repeat',backgroundSize:'cover',backgroundPosition:'center'}">
           <div class="hero__content-wrapper mt-20 hero">
@@ -20,19 +32,7 @@
         </div>
     </ng-template>
         <ng-template swiperSlide>
-          <div class="single-slider swiper-slide slider__height slider__overlay flex items-center"[ngStyle]="{background:'url(https://firebasestorage.googleapis.com/v0/b/neue-welt-d499e.appspot.com/o/home%2Flandmarks-modern-city.jpg?alt=media&token=dc246b2b-3e1d-49d6-b575-a54130edeb9b)',backgroundRepeat:'no-repeat',backgroundSize:'cover',backgroundPosition:'center'}" >
-            <div class="hero__content-wrapper mt-20 hero">
-              <h1 class="hero__title"><span>share your startup</span></h1>
-              <p class="hero__description">The project (Neue Welt) is a website affiliated with the Jordan Ministry of Digital Economy and Entrepreneurship.
-                Neue Welt is a dynamic platform for documenting all startup ecosystems in Jordan. Here you can see all the fresh companies in Jordan and to which sector they belong, as well as you can request your own startup to be shown on the website.</p>
-                <div class="hero__buttons">
-                  <button class="btn btn-req" (click)="checkUser($event)">Get started!</button>
-                </div>
-             </div>
-          </div>
-      </ng-template>
-        <ng-template swiperSlide>
-          <div class="single-slider swiper-slide slider__height slider__overlay flex items-center" [ngStyle]="{background:'url(https://firebasestorage.googleapis.com/v0/b/neue-welt-d499e.appspot.com/o/home%2Flow-angle-view-skyscrapers.jpg?alt=media&token=726ffd31-7962-47c9-b08b-c93ac5a75fe3)',backgroundRepeat:'no-repeat',backgroundSize:'cover',backgroundPosition:'center'}" >
+          <div class="single-slider swiper-slide slider__height slider__overlay flex items-center" [ngStyle]="{background:'url(https://firebasestorage.googleapis.com/v0/b/neue-welt-d499e.appspot.com/o/website%2Fhero_2.webp?alt=media&token=d544019b-07e7-4eb6-8487-88b5496ad62b)',backgroundRepeat:'no-repeat',backgroundSize:'cover',backgroundPosition:'center'}" >
 
             <div class="hero__content-wrapper mt-20 hero">
               <h1 class="hero__title"><span>let the world see</span></h1>

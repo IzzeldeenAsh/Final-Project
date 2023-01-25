@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { of } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 
 interface beginImages {
   imgSrc: string;
@@ -21,19 +20,19 @@ export class BeginComponent implements OnInit {
     this.beginImages = [
       {
         imgSrc:
-          'https://images.pexels.com/photos/462331/pexels-photo-462331.jpeg',
+          'https://firebasestorage.googleapis.com/v0/b/neue-welt-d499e.appspot.com/o/website%2FfirstBegin_1.webp?alt=media&token=f8ffc6ee-8831-48e1-b10b-f44bc94c917b',
       },
       {
         imgSrc:
-          'https://media.istockphoto.com/id/1351571961/photo/looking-directly-up-at-the-skyline-of-the-financial-district-in-central-london.jpg?b=1&s=170667a&w=0&k=20&c=ScoPcmVztzvi771qPgGSvhA50WDt7gOM7361Ei0ODww=',
+          'https://firebasestorage.googleapis.com/v0/b/neue-welt-d499e.appspot.com/o/website%2FfirstBegin_2.webp?alt=media&token=158c4a11-97b7-43bc-b291-85a6bf22ad70',
       },
       {
         imgSrc:
-          'https://media.istockphoto.com/id/1291177121/photo/low-angle-of-tall-building-in-manhattan.jpg?b=1&s=170667a&w=0&k=20&c=Mq9Qm3UjzrqNKs6HFOFNJps-P9z4ijK1aTx1nP4gEes=',
+          'https://firebasestorage.googleapis.com/v0/b/neue-welt-d499e.appspot.com/o/website%2FfirstBegin_3.webp?alt=media&token=ab1776a2-306d-4e67-a26a-c44efa0232d5',
       },
       {
         imgSrc:
-          'https://media.istockphoto.com/id/1135793300/photo/3d-rendering-of-corporate-buildings-with-sunlight.jpg?s=612x612&w=0&k=20&c=SSSn8Bv0YF9IMfIRALerDpwgpLqdLZ2A0X4K3akVqLk=',
+          'https://firebasestorage.googleapis.com/v0/b/neue-welt-d499e.appspot.com/o/website%2FfirstBegin_4.webp?alt=media&token=9a46d4ef-156b-48b8-8fc3-87d78669c8ba',
       },
     ];
 

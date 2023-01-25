@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersDataService } from 'src/app/initializer/users-data.service';
 
 @Component({
   selector: 'app-about-area',

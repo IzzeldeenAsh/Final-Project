@@ -8,7 +8,6 @@ import {
 import { MatTableDataSource, MatTable } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
 import { Router } from '@angular/router';
-import * as _ from 'lodash';
 import { StartupsService } from 'src/app/services/startups.service';
 import { SectorsService } from 'src/app/services/sectors.service';
 import { Subject, takeUntil } from 'rxjs';

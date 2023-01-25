@@ -7,8 +7,7 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
-import { SideNavService } from 'src/app/services/side-nav.service';
-import { NavMenuDTO } from '../dto/side-nav-menu';
+
 @Component({
   selector: 'app-side-nav',
   templateUrl: './side-nav.component.html',
@@ -18,17 +17,12 @@ export class SideNavComponent implements OnInit, OnDestroy {
   private readonly destroy$ = new Subject<void>();
 
   @Output() toggle = new EventEmitter<boolean>();
-  navMenu: NavMenuDTO;
+
   showSidebar: boolean = false;
   ShowToggle: boolean = true;
   closingSideBar!: boolean;
 
-  constructor(
-    private breakpoint: BreakpointObserver,
-    private _sideNavDTO: SideNavService
-  ) {
-    this.navMenu = this._sideNavDTO.getNavMenu();
-  }
+  constructor(private breakpoint: BreakpointObserver) {}
 
   ngOnInit(): void {
     this.breakpointObs();

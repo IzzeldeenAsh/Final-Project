@@ -4,7 +4,7 @@ import { BehaviorSubject, from, Observable, of } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import IUser from '../models/user.modal';
 import { map, delay, switchMap } from 'rxjs/operators';
-import { GoogleAuthProvider, User, user, UserInfo } from '@angular/fire/auth';
+import { GoogleAuthProvider, User } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Injectable({

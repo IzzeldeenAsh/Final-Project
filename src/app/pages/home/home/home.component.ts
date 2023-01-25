@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { UsersDataService } from 'src/app/initializer/users-data.service';
 import { StartupsService } from 'src/app/services/startups.service';
 
 @Component({

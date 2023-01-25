@@ -7,7 +7,6 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersDataService } from 'src/app/initializer/users-data.service';
-import IMessage from 'src/app/models/messages.modal';
 import { AlertsService } from 'src/app/services/alerts.service';
 import { ContactService } from 'src/app/services/contact.service';
 

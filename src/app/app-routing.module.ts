@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
 import { AdminService } from './services/admin.service';
 
@@ -51,6 +51,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       scrollPositionRestoration: 'enabled',
       initialNavigation: 'enabledBlocking',
+      preloadingStrategy: PreloadAllModules,
     }),
   ],
   exports: [RouterModule],
