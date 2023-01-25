@@ -35,30 +35,57 @@ export class UsersDataService {
     return this.db.object('/users/' + uid);
   }
 
-  getUserData() {
-    this._lodaer.setLoading(true);
-    this.fireAuth.authState
-      .pipe(
-        switchMap((user) => {
-          return this.getUserByID(user?.uid)
-            .valueChanges()
-            .pipe(
-              map((user) => {
-                return user;
-              })
-            );
-        })
-      )
-      .subscribe({
-        next: (data: any) => {
-          if (data) {
-            this._lodaer.setLoading(false);
-            this.usersData.next(data);
-          } else {
-            this._lodaer.setLoading(false);
-            this.usersData.next(null);
-          }
-        },
-      });
+  // getUserData() {
+  //   this._lodaer.setLoading(true);
+  //   this.fireAuth.authState
+  //     .pipe(
+  //       switchMap((user) => {
+  //         return this.getUserByID(user?.uid)
+  //           .valueChanges()
+  //           .pipe(
+  //             map((user) => {
+  //               return user;
+  //             })
+  //           );
+  //       })
+  //     )
+  //     .subscribe({
+  //       next: (data: any) => {
+  //         if (data) {
+  //           this._lodaer.setLoading(false);
+  //           this.usersData.next(data);
+  //         } else {
+  //           this._lodaer.setLoading(false);
+  //           this.usersData.next(null);
+  //         }
+  //       },
+  //     });
+  // }
+
+  Init() {
+    return new Promise<boolean>((resolve, reject) => {
+      console.log('App_INI_WORKED');
+      this._lodaer.setLoading(true);
+      this.fireAuth.authState
+        .pipe(
+          switchMap((user) => {
+            return this.getUserByID(user?.uid)
+              .valueChanges()
+              .pipe(map((user) => user));
+          })
+        )
+        .subscribe({
+          next: (data: any) => {
+            if (data) {
+              this._lodaer.setLoading(false);
+              this.usersData.next(data);
+            } else {
+              this._lodaer.setLoading(false);
+              this.usersData.next(null);
+            }
+          },
+        });
+      resolve(true);
+    });
   }
 }

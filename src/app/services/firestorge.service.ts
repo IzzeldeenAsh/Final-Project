@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { finalize, Observable } from 'rxjs';
-import { last } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { v4 as uuid } from 'uuid';
 
 @Injectable({

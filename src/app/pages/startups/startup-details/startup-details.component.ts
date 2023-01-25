@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import IStartup from 'src/app/models/startup.modal';
-import { StartupsService } from 'src/app/services/startups.service';
-import { delay, map, Subject, take, takeUntil } from 'rxjs';
+import { delay, map, Subject, takeUntil } from 'rxjs';
 import { AlertsService } from 'src/app/services/alerts.service';
 import { LoaderService } from 'src/app/services/loader.service';
 

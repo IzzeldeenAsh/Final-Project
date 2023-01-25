@@ -57,6 +57,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     } else {
       this.isHome = false;
     }
+    console.log(this.isHome);
   }
 
   currentUserData() {

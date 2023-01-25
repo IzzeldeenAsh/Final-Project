@@ -16,7 +16,6 @@
         required type="email" name="email"
         placeholder="Enter Email"
         [(ngModel)]="creadentials.email"
-        pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
          />
       <p *ngIf="email.errors && email.touched && email.dirty" class="text-red-400">Email is invalid</p>
     </div>
