@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
+import ISector from 'src/app/models/sectors.modal';
 import { SectorsService } from 'src/app/services/sectors.service';
 
 @Component({
@@ -33,6 +34,10 @@ export class SectorsExploreComponent implements OnInit, OnDestroy {
 
   toDetails(sectorName: string) {
     this.router.navigateByUrl(`sectors/sectorDetails/${sectorName}`);
+  }
+
+  trackByName(index: number, sector: ISector) {
+    return sector.sectorName;
   }
 
   ngOnDestroy(): void {

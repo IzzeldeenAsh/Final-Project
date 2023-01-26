@@ -66,7 +66,9 @@ export class StartupsListComponent implements OnInit, OnDestroy {
   toStartupDetails(key: any) {
     this.router.navigateByUrl(`startups/startup-details/${key}`);
   }
-
+  trackByName(index: number, startup: IStartup) {
+    return startup.startupName;
+  }
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();

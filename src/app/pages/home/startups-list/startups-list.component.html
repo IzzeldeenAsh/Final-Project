@@ -11,7 +11,7 @@
         <mat-tab>
           <ng-template mat-tab-label><div><button type="button" role="tab">See All </button></div></ng-template>
           <div class="startup_row">
-            <div class="startup_col mt-20 mb-20" *ngFor="let startup of startups">
+            <div class="startup_col mt-20 mb-20" *ngFor="let startup of startups;trackBy:trackByName">
             <div class="startups-list__item ">
               <div class="startups-list__thumb">
                 <a (click)="toStartupDetails(startup.key)">
@@ -36,7 +36,7 @@
         </mat-tab>
         <ng-container *ngFor="let sector of sectors" >
           <mat-tab label="{{sector.sectorName}}" >
-              <ng-container *ngFor="let curr of current">
+              <ng-container *ngFor="let curr of current;trackBy:trackByName">
               <div class="startup_row">
                 <div class="startup_col mt-20 mb-20" >
                 <div class="startups-list__item ">

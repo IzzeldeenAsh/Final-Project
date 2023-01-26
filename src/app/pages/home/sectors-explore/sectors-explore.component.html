@@ -10,7 +10,7 @@
     <div class="sectors_categories__list pt-30">
 
       <app-spinner *ngIf="showSpinner"></app-spinner>
-      <ng-container *ngFor="let sector of sectors" >
+      <ng-container *ngFor="let sector of sectors;trackBy:trackByName" >
       <div  class="col" (click)="toDetails(sector.sectorName)">
         <div class="sectors_categories__item" >
 
