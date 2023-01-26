@@ -47,6 +47,7 @@ export class StartupsListComponent implements OnInit, OnDestroy {
         let sector_Name = Object.values(startup.sectorName);
         if (sector_Name.includes($event.tab.textLabel as never)) {
           this.current.push(startup);
+          console.log(this.current);
         }
       });
     }

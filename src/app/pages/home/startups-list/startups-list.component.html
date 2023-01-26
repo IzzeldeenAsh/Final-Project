@@ -15,7 +15,9 @@
             <div class="startups-list__item ">
               <div class="startups-list__thumb">
                 <a (click)="toStartupDetails(startup.key)">
+                <div class="cover_img_container">
                   <img class="cover_img" src="{{startup.coverImg}}" alt="">
+                </div>
                     <div class="grade_overlay">
                       <div class="startups-list__tag">
                         <a href="#"><img style="width :80px" src="{{startup.startupLogo}}" alt=""></a>
@@ -36,8 +38,31 @@
         </mat-tab>
         <ng-container *ngFor="let sector of sectors" >
           <mat-tab label="{{sector.sectorName}}" >
-              <ng-container *ngFor="let curr of current;trackBy:trackByName">
-              <div class="startup_row">
+              <ng-container *ngFor="let curr of current">
+
+                  <div class="startups-list__item  mt-20 mb-20">
+                    <div class="startups-list__thumb">
+                      <a (click)="toStartupDetails(curr.key)">
+                      <div class="cover_img_container">
+                        <img class="cover_img" src="{{curr.coverImg}}" alt="">
+                      </div>
+                          <div class="grade_overlay">
+                            <div class="startups-list__tag">
+                              <a href="#"><img style="width :80px" src="{{curr.startupLogo}}" alt=""></a>
+                            </div>
+                           <div class="startup_home_title">
+                            <h1>{{curr.startupName}}</h1>
+                            <span>{{curr.sectorName|join}}, <a href="{{curr.websiteURL}}" target="_blank">Website</a></span>
+                           </div>
+                      </div>
+
+                      </a>
+
+                    </div>
+
+                  </div>
+
+              <!-- <div class="startup_row">
                 <div class="startup_col mt-20 mb-20" >
                 <div class="startups-list__item ">
                   <div class="startups-list__thumb">
@@ -60,7 +85,7 @@
 
                 </div>
               </div>
-            </div>
+            </div> -->
           </ng-container>
 
 
