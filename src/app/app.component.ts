@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersDataService } from './initializer/users-data.service';
-import { HomeComponent } from './pages/home/home/home.component';
 import { AuthService } from './services/auth.service';
+import { LoaderService } from './services/loader.service';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +14,8 @@ export class AppComponent implements OnInit {
   constructor(
     public _auth: AuthService,
     public _userData: UsersDataService,
-    private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public lodaer: LoaderService
   ) {}
   ngOnInit(): void {
     console.log(this.route.outlet);
