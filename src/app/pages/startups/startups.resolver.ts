@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  Router,
-  Resolve,
-  RouterStateSnapshot,
-  ActivatedRouteSnapshot,
-} from '@angular/router';
+import { Router, Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { catchError, Observable, of, take } from 'rxjs';
 import { AlertsService } from 'src/app/services/alerts.service';
 import { StartupsService } from 'src/app/services/startups.service';
@@ -18,10 +13,7 @@ export class StartupsResolver implements Resolve<any> {
     private router: Router,
     private _alert: AlertsService
   ) {}
-  resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<any> {
+  resolve(route: ActivatedRouteSnapshot): Observable<any> {
     return this._startups.getStartupById(route.params?.id).pipe(
       take(1),
       catchError((err) => {

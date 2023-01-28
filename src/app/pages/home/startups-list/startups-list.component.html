@@ -16,8 +16,8 @@
                 <img [src]="startup.startupLogo" alt="">
               </div>
               <!-- Image -->
-              <a href="#">
-                <img class="card-img-top rounded-md w-full" [src]="startup.coverImg" (click)="toStartupDetails(startup.key)">
+              <a (click)="toStartupDetails(startup.key)" class="cursor-pointer">
+                <img class="card-img-top rounded-md w-full" [src]="startup.coverImg" >
               </a>
               <!-- Body -->
               <div class="p-6 text-2xl">
@@ -25,10 +25,7 @@
                 <a  class="font-bold mb-2">
                  {{startup.startupName}}
                 </a>
-                <!-- <a href="#" class="bg-gray-400 text-white px-2 py-1 ml-2 text-sm rounded">
-                  Copy Link
-                </a> -->
-
+                <span class="sector_name_home_S">{{startup.sectorName|join}}</span>
               </div>
 
 
@@ -39,34 +36,25 @@
         </mat-tab>
         <ng-container *ngFor="let sector of sectors" >
           <mat-tab label="{{sector.sectorName}}" >
-
                   <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-30 pb-30">
-                <div *ngFor="let curr of current" class="mt-6 rounded-md shadow-xl bg-secondary flex flex-col justify-start">
+                <div *ngFor="let curr of current" class="mt-6 rounded-md shadow-xl bg-secondary flex flex-col justify-start" >
                   <div class="logo_container ">
                     <img [src]="curr.startupLogo" alt="">
                   </div>
                   <!-- Image -->
-                  <a href="#">
-                    <img class="card-img-top rounded-md w-full" [src]="curr.coverImg" (click)="toStartupDetails(curr.key)">
+                  <a  (click)="toStartupDetails(curr.key)">
+                    <img class="card-img-top rounded-md w-full" [src]="curr.coverImg">
                   </a>
-
                   <!-- Body -->
                   <div class="p-6 text-2xl">
-
                     <!-- Link -->
                     <a  class="font-bold mb-2">
                      {{curr.startupName}}
                     </a>
-                    <!-- <a href="#" class="bg-gray-400 text-white px-2 py-1 ml-2 text-sm rounded">
-                      Copy Link
-                    </a> -->
-
+                    <span class="sector_name_home_S">{{curr.sectorName|join}}</span>
                   </div>
-
-
                 </div>
               </div>
-
           </mat-tab>
         </ng-container>
       </mat-tab-group>
