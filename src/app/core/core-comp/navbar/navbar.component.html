@@ -122,13 +122,13 @@
                <a (click)="dashDropdown()">Dashboard</a>
                <ul class="sub-menu" [class.active]="showDashDropdown">
                 <li>
-                    <a [routerLink]="['/dashboard/dashboard-overview']">Dashboard Overview</a>
+                    <a [routerLink]="['/dashboard/dashboard-overview']" (click)="handleSidebarClose()">Dashboard Overview</a>
                 </li>
                 <li>
-                    <a [routerLink]="['/dashboard/sectors-manage']">Sectors</a>
+                    <a [routerLink]="['/dashboard/sectors-manage']" (click)="handleSidebarClose()">Sectors</a>
                 </li>
                 <li>
-                    <a [routerLink]="['/dashboard/startups-manage']">Startups</a>
+                    <a [routerLink]="['/dashboard/startups-manage'] " (click)="handleSidebarClose()">Startups</a>
                 </li>
               </ul>
               </li>
@@ -138,9 +138,9 @@
                 <a [routerLink]="['/about']" routerLinkActive="activeNavLinks" (click)="handleSidebarClose()">About US</a>
               </li>
               <li class="menu-item-has-children list-el">
-              <div *ngIf="(_userData.isAuthenticated$|async) ; else notAuthed " >  <a routerLinkActive="activeNavLinks" [routerLink]="['/startups/add-startup']">New Startup!</a></div>
+              <div *ngIf="(_userData.isAuthenticated$|async) ; else notAuthed " >  <a routerLinkActive="activeNavLinks" [routerLink]="['/startups/add-startup']" (click)="handleSidebarClose()">New Startup!</a></div>
               <ng-template #notAuthed>
-                <a routerLinkActive="activeNavLinks" (click)="openModal($event,'RegisterForm')" (click)="handleSidebarClose()">New Startup!</a>
+                <a routerLinkActive="activeNavLinks" (click)="openModal($event,'RegisterForm')" >New Startup!</a>
               </ng-template>
               </li>
           </ul>

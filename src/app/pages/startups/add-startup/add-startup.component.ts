@@ -123,16 +123,16 @@ export class AddStartupComponent implements OnInit {
         [Validators.required],
       ],
       startupLogo: [
-        startupbyID ? this.editLogo(startupbyID.startupLogo) : '',
+        startupbyID ? startupbyID.startupLogo : '',
         [Validators.required],
       ],
       coverImg: [startupbyID ? startupbyID.coverImg : ''],
     });
   }
 
-  editLogo(url: string) {
-    this.logoUrl = url;
-  }
+  // editLogo(url: string) {
+
+  // }
 
   get startupName() {
     return this.addStartup.get('startupName') as FormControl;

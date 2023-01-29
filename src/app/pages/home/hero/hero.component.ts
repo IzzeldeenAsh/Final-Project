@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersDataService } from 'src/app/initializer/users-data.service';
 import { ModalService } from 'src/app/services/modal.service';
@@ -10,7 +10,7 @@ SwiperCore.use([Autoplay, EffectFade]);
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss'],
 })
-export class HeroComponent implements OnInit {
+export class HeroComponent implements OnInit, OnDestroy {
   isUserLogged: boolean = false;
   constructor(
     public _modal: ModalService,
@@ -41,5 +41,9 @@ export class HeroComponent implements OnInit {
       $event.preventDefault();
       this._modal.toggleModal('RegisterForm');
     }
+  }
+
+  ngOnDestroy() {
+    this._modal.unregister('RegisterForm');
   }
 }

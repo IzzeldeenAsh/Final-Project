@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private _auth: AuthService,
-    private usedEmail: UsedEmail
+    private _emailUsed: UsedEmail
   ) {}
 
   // Using Reactive form
@@ -43,11 +43,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
       {
         fname: ['', [Validators.required, Validators.minLength(2)]],
         lname: ['', [Validators.required, Validators.minLength(2)]],
-        email: new FormControl(
-          '',
-          [Validators.required, Validators.email],
-          [this.usedEmail.validate]
-        ),
+        email: new FormControl('', [Validators.required, Validators.email]),
         age: [
           null,
           [Validators.required, Validators.min(18), Validators.max(120)],
@@ -124,8 +120,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
           );
         },
         error: (err) => {
-          console.log(err);
-          this.alertMessage = 'An error occured. Please try again later.';
+          this.alertMessage = `${err}`;
           this.alertColor = 'red';
           this.inSubmission = false;
           return;

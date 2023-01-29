@@ -42,7 +42,7 @@
                 </mat-form-field>
 
                 <div class="contact__btn">
-                  <button type="submit" class="e-btn disabled:opacity-50" [disabled]="!(_userData.isAuthenticated$|async)" >Send your message</button>
+                  <button type="submit" class="e-btn disabled:opacity-50" [disabled]="!(_userData.isAuthenticated$|async) || contactForm.invalid " >Send your message</button>
                </div>
                <br>
                <p *ngIf="!(_userData.isAuthenticated$|async)" class="text-red-400">Please login to send a message</p>
