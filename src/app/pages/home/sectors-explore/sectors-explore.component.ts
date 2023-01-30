@@ -12,7 +12,6 @@ import { SectorsService } from 'src/app/services/sectors.service';
 export class SectorsExploreComponent implements OnInit, OnDestroy {
   private readonly destroy$ = new Subject<void>();
   sectors!: any;
-  showSpinner: boolean = true;
 
   constructor(private _sectorsApi: SectorsService, private router: Router) {}
 
@@ -26,7 +25,6 @@ export class SectorsExploreComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (sectors: any) => {
-          this.showSpinner = false;
           this.sectors = sectors;
         },
       });

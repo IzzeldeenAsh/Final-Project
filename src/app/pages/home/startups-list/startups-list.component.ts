@@ -34,10 +34,6 @@ export class StartupsListComponent implements OnInit, OnDestroy {
       });
   }
 
-  sectorValue($event: any) {
-    console.log($event.value);
-  }
-
   tabChanged($event: any) {
     if (this.sectors) {
       this.current = [];
