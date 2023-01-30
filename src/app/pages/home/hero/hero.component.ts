@@ -2,8 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersDataService } from 'src/app/initializer/users-data.service';
 import { ModalService } from 'src/app/services/modal.service';
-import SwiperCore, { Autoplay, EffectFade } from 'swiper';
-SwiperCore.use([Autoplay, EffectFade]);
 
 @Component({
   selector: 'app-hero',

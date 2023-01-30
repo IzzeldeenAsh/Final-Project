@@ -1,28 +1,12 @@
 @use '../global' as *;
 
 .slider__title{
-
   opacity: 1;
   transform: translateY(0);
 }
 .slider{
-
-  &__wrapper{
-
-      & .swiper-slide-active {
-          & span,
-          & p,
-          & a,
-          & .slider__title{
-              opacity: 1;
-              transform: translateY(0);
-          }
-      }
-  }
-
-
   &__height{
-      min-height: 950px;
+      min-height: 1000px !important;
       @media #{$sm}{
           min-height: 700px;
       }

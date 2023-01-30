@@ -13,7 +13,7 @@
 &__title{
 
   color: $white;
-  z-index: 1000;
+  z-index: 50;
 
   text-align: center;
   text-transform: uppercase;
@@ -38,26 +38,6 @@
   line-height: 25px;
 }
 &__buttons{
-
-  // position: absolute;
-  // z-index: 20;
-  // top:65%;
-  // left: 50%;
-  // @media screen and (max-width:1400px) {
-  //   top: 70%;
-  // }
-  // @media screen and (max-width:1200px) {
-  //   top: 75%;
-  // }
-  // @media screen and (max-width:800px) {
-  //   top: 80%;
-  // }
-  // @media screen and (max-width:600px) {
-  //   top: 80%;
-  // }
-  // @media screen and (max-width:400px) {
-  //   top: 85%;
-  // }
 
   @include flex-centering();
   @media($xs){

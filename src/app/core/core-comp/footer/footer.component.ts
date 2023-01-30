@@ -11,9 +11,4 @@ export class FooterComponent implements OnInit {
   constructor(public _modal: ModalService, public _auth: AuthService) {}
   websiteUrl: string = 'https://neue-welt-d499e.web.app';
   ngOnInit(): void {}
-
-  openModal($event: Event, id: string) {
-    $event.preventDefault();
-    this._modal.toggleModal(id);
-  }
 }

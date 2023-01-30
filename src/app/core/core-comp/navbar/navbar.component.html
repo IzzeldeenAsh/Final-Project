@@ -58,9 +58,9 @@
       </div>
      <ng-template #authLinks>
       <div class="header_right_btns">
-        <a class="user_name hidden sm:inline-block" [ngClass]="sticky? 'user_name_sticky' :'user_name_noSticky'">Hi {{userName}}!</a
+        <a href="" class="user_name hidden sm:inline-block" [ngClass]="sticky? 'user_name_sticky' :'user_name_noSticky'">Hi {{userName}}!</a
         ><button class="btn_secondary hidden sm:inline-block" [routerLink]="['/startups/add-startup']">New Startup!</button>
-        <a class="user_name" (click)="logout()" [ngClass]="sticky? 'user_name_sticky' :'user_name_noSticky'"><i class="fa-solid fa-right-from-bracket"> <span class="links_name">Logout</span></i> </a>
+        <a href="/" class="user_name" (click)="logout()" [ngClass]="sticky? 'user_name_sticky' :'user_name_noSticky'"><i class="fa-solid fa-right-from-bracket"> <span class="links_name">Logout</span></i> </a>
       </div>
      </ng-template>
      <div class="sidebar__menu xl:hidden">
@@ -119,7 +119,7 @@
             <ng-container *ngIf="isAdmin">
               <li class="menu-item-has-children list-el"  [class.active]="showDashDropdown"
                >
-               <a (click)="dashDropdown()">Dashboard</a>
+               <a href="#" (click)="dashDropdown($event)">Dashboard</a>
                <ul class="sub-menu" [class.active]="showDashDropdown">
                 <li>
                     <a [routerLink]="['/dashboard/dashboard-overview']" (click)="handleSidebarClose()">Dashboard Overview</a>

@@ -4,7 +4,6 @@ import IStartup from 'src/app/models/startup.modal';
 import { SectorsService } from 'src/app/services/sectors.service';
 import { StartupsService } from 'src/app/services/startups.service';
 import { Subject, takeUntil } from 'rxjs';
-import { Router } from '@angular/router';
 @Component({
   selector: 'app-startups-list',
   templateUrl: './startups-list.component.html',
@@ -18,8 +17,7 @@ export class StartupsListComponent implements OnInit, OnDestroy {
 
   constructor(
     private _startupsApi: StartupsService,
-    private _sectorsApi: SectorsService,
-    private router: Router
+    private _sectorsApi: SectorsService
   ) {}
 
   ngOnInit(): void {
@@ -64,9 +62,6 @@ export class StartupsListComponent implements OnInit, OnDestroy {
       });
   }
 
-  toStartupDetails(key: any) {
-    this.router.navigateByUrl(`startups/startup-details/${key}`);
-  }
   trackByName(index: number, startup: IStartup) {
     return startup.startupName;
   }

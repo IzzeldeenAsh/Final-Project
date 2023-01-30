@@ -8,26 +8,7 @@ import { StartupsService } from 'src/app/services/startups.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  showSpinner: boolean = true;
-  searchText: string = '';
-  startups!: any;
-  constructor(private _startups: StartupsService, private _router: Router) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.getStartups();
-  }
-
-  onSeatchTextRecieved(searchValue: string) {
-    this.searchText = searchValue;
-  }
-
-  getStartups() {
-    this._startups
-      .getAllStartups()
-      .subscribe((startups) => (this.startups = startups));
-  }
-
-  toStartupDetails(key: string) {
-    this._router.navigateByUrl(`startups/startup-details/${key}`);
-  }
+  ngOnInit(): void {}
 }

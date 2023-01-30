@@ -12,9 +12,9 @@ export function initializeApp1(UsersDataService: UsersDataService) {
   providers: [
     {
       provide: APP_INITIALIZER,
-      multi: true,
-      useFactory: initializeApp1,
-      deps: [UsersDataService], // to make it avalible as an argument for factory function
+      multi: true, // prvide multiple values for a single token ( APP_INI)
+      useFactory: initializeApp1, //specifies that the provider is a factory function whose implementation is initializeApp1
+      deps: [UsersDataService],
     },
     {
       provide: APP_INITIALIZER,
@@ -24,7 +24,7 @@ export function initializeApp1(UsersDataService: UsersDataService) {
           data.isAuthenticated$.pipe(take(1));
         };
       },
-      deps: [UsersDataService], // to make it avalible as an argument for factory function
+      deps: [UsersDataService],
     },
   ],
 })

@@ -21,7 +21,7 @@
 
           <div class="service-item-img" *ngIf="beginImages && beginImages.length >0">
 
-              <img  *ngFor="let img of beginImages ; let index=index" class="fade" [src]="img.imgSrc" [ngClass]="{'activeImg': selectedIndex===index}" alt="">
+              <img  *ngFor="let img of beginImages ; let index=index" class="fade" [src]="img.imgSrc" [ngClass]="{'activeImg': selectedIndex===index}" alt="begin_image">
               <ul class="service-bullets" *ngIf="indicator">
                 <li (click)="selectImage(index)" *ngFor="let dot of beginImages ; let index=index" [ngClass]="{'active' : selectedIndex===index}" class="dot"></li>
               </ul>

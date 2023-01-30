@@ -13,10 +13,10 @@
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-30 pb-30 relative">
             <div *ngFor="let startup of startups" class="mt-6 rounded-md shadow-xl bg-secondary flex flex-col justify-start">
               <div class="logo_container ">
-                <img [src]="startup.startupLogo" alt="">
+                <img [src]="startup.startupLogo" alt="cover_img">
               </div>
               <!-- Image -->
-              <a (click)="toStartupDetails(startup.key)" class="cursor-pointer">
+              <a routerLink="/startups/startup-details/{{startup.key}}" class="cursor-pointer">
                 <img class="card-img-top rounded-md w-full" [src]="startup.coverImg" >
               </a>
               <!-- Body -->
@@ -42,8 +42,8 @@
                     <img [src]="curr.startupLogo" alt="">
                   </div>
                   <!-- Image -->
-                  <a  (click)="toStartupDetails(curr.key)">
-                    <img class="card-img-top rounded-md w-full" [src]="curr.coverImg">
+                  <a routerLink="/startups/startup-details/{{curr.key}}">
+                    <img class="card-img-top rounded-md w-full" [src]="curr.coverImg" alt="cover_img">
                   </a>
                   <!-- Body -->
                   <div class="p-6 text-2xl">

@@ -57,7 +57,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     } else {
       this.isHome = false;
     }
-    console.log(this.isHome);
   }
 
   currentUserData() {
@@ -97,7 +96,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
       .subscribe(() => this.router.navigateByUrl('/home'));
   }
 
-  dashDropdown() {
+  dashDropdown($event: any) {
+    $event.preventDefault();
     this.showDashDropdown = !this.showDashDropdown;
   }
 

@@ -14,10 +14,7 @@ export class AppComponent implements OnInit {
   constructor(
     public _auth: AuthService,
     public _userData: UsersDataService,
-    private route: ActivatedRoute,
     public lodaer: LoaderService
   ) {}
-  ngOnInit(): void {
-    console.log(this.route.outlet);
-  }
+  ngOnInit(): void {}
 }
