@@ -21,7 +21,7 @@ export class AuthGuard implements CanLoad {
     if (this._auth.isLogged.value) {
       return true;
     } else {
-      this._modal.toggleModal('RegisterForm');
+      this._modal.toggleModal('LoginForm');
       return false;
     }
   }
