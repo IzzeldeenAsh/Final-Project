@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   inSubmission = false;
 
   creadentials = {
-    email: '',
-    password: '',
+    email: 'admin@neuewelt.com',
+    password: 'P@ssw0rd',
   };
 
   constructor(private _auth: AuthService) {}
